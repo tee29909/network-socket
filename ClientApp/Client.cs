@@ -9,11 +9,12 @@ namespace ClientApp
     {
         static void Main(string[] args)
         {
+            Console.Write("start client\n");
             string s = System.IO.File.ReadAllText(@"C:\Users\Master\Desktop\TCPIPAPP\a.txt");
             
             //Console.WriteLine(s);
             Socket sck = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint endpoint = new IPEndPoint(IPAddress.Parse("192.168.0.13"), 8080);
+            IPEndPoint endpoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 3000);
             sck.Connect(endpoint);
             //Console.Write("Enter Message:");
            // string msg = Console.ReadLine();

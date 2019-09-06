@@ -10,15 +10,15 @@ namespace TCPIPAPP
         static void Main(string[] args)
         {
 
-            
-            
+
+            Console.WriteLine("start server");
 
             Socket sck = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint endpoint = new IPEndPoint(IPAddress.Parse("192.168.0.1"), 1990);
+            IPEndPoint endpoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 3000);
             sck.Bind(endpoint);
             sck.Listen(10);
             Socket acc = sck.Accept();
-            string message = "Hello";
+            string message = "server ready";
             byte[] buffer = Encoding.ASCII.GetBytes(message);
             acc.Send(buffer, 0, buffer.Length, 0);
 
